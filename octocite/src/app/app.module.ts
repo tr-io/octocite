@@ -9,6 +9,7 @@ import { MainComponent } from './main.component';
 import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register.component';
 import { CitFormComponent } from './citform.component';
+import { FooterComponent } from './footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CitFormComponent } from './citform.component';
     MainComponent,
     LoginComponent,
     RegisterComponent,
-    CitFormComponent
+    CitFormComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

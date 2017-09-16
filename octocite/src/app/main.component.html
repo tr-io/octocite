@@ -6,24 +6,24 @@
 </div>
 <div class="container">
   <h3>Generate citations</h3>
-  <form (ngSubmit)="onSubmit()" #citForm="ngForm">
+  <form>
     <div class="form-group">
       <p>Choose citation style:</p>
-      <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="typeString">
+      <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
         <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" [value]="1" required> MLA
+          <input ngbButton type="radio" [value]="1"> Left (pre-checked)
         </label>
         <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" [value]="2" required> APA
+          <input ngbButton type="radio" value="middle"> Middle
         </label>
         <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" [value]="3" required> Chicago
+          <input ngbButton type="radio" [value]="false"> Right
         </label>
       </div>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="inputString" placeholder="Cite any type of media by typing in the title/ISBN/URL or keywords" required [(ngModel)]="inputString" name="inputString">{{ inputString }} {{ typeString }}
+      <input type="text" class="form-control" id="inputString" placeholder="Cite any type of media by typing in the title/ISBN/URL or keywords" required [(ngModel)]="inputString" name="inputString">{{ inputString }} {{ model }}
     </div>
-    <button type="submit" class="btn btn-success" [disabled]="!citForm.form.valid">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
