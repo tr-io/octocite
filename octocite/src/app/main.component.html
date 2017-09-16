@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Octocite</h1>
+    <p>Generate your citations in MLA, APA, or Chicago for free!</p>
+  </div>
+</div>
+<div class="container">
+  <h3>Generate citations</h3>
+  <form>
+    <div class="form-group">
+      <p>Choose citation format:</p>
+      <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="typeString">
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="mla"> MLA
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="apa"> APA
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+          <input ngbButton type="radio" value="chicago"> Chicago
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="inputString" placeholder="Cite any type of media by typing in the title/ISBN/URL or keywords" required [(ngModel)]="inputString" name="inputString">{{ inputString }} {{ typeString }}
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
