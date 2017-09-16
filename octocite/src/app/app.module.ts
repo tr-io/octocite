@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main.component';
 import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register.component';
+import { CitFormComponent } from './citform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CitFormComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { RegisterComponent } from './register.component';
       },
       {
         path: '',
-        redirectTo: '/main',
+        redirectTo: '/citation-form',
         pathMatch: 'full'
       },
       {
@@ -37,6 +39,10 @@ import { RegisterComponent } from './register.component';
       {
         path: 'register',
         component: RegisterComponent
+      },
+      {
+        path: 'citation-form',
+        component: CitFormComponent
       }
     ])
   ],

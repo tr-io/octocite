@@ -6,24 +6,24 @@
 </div>
 <div class="container">
   <h3>Generate citations</h3>
-  <form>
+  <form (ngSubmit)="onSubmit()" #citForm="ngForm">
     <div class="form-group">
-      <p>Choose citation format:</p>
+      <p>Choose citation style:</p>
       <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="typeString">
         <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" value="mla"> MLA
+          <input ngbButton type="radio" [value]="1" required> MLA
         </label>
         <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" value="apa"> APA
+          <input ngbButton type="radio" [value]="2" required> APA
         </label>
         <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" value="chicago"> Chicago
+          <input ngbButton type="radio" [value]="3" required> Chicago
         </label>
       </div>
     </div>
     <div class="form-group">
       <input type="text" class="form-control" id="inputString" placeholder="Cite any type of media by typing in the title/ISBN/URL or keywords" required [(ngModel)]="inputString" name="inputString">{{ inputString }} {{ typeString }}
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!citForm.form.valid">Submit</button>
   </form>
 </div>
