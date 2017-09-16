@@ -1,71 +1,80 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Octocite</h1>
+    <p>Generate your citations in MLA, APA, or Chicago for free!</p>
+  </div>
+</div>
 <div class="container" style="padding-top: 45px; padding-bottom: 45px">
   <h1>Generate citations</h1>
-  <form (ngSubmit)="onSubmit()" #citForm="ngForm">
-    <div class="form-group">
-      <p>Choose citation style:</p>
-      <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="typeString">
-        <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" [value]="1" required> MLA
-        </label>
-        <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" [value]="2" required> APA
-        </label>
-        <label ngbButtonLabel class="btn-primary">
-          <input ngbButton type="radio" [value]="3" required> Chicago
-        </label>
+  <div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #citForm="ngForm">
+      <div class="form-group">
+        <p>Choose citation style:</p>
+        <div class="btn-group" ngbRadioGroup name="radioBasic" [(ngModel)]="typeString">
+          <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" [value]="1" required> MLA
+          </label>
+          <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" [value]="2" required> APA
+          </label>
+          <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" [value]="3" required> Chicago
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label>Author</label>
-      <input type="text" class="form-control" id="authorName" [(ngModel)]="authorName" name="authorName">
-    </div>
-    <div class="form-group">
-      <label>Source Title</label>
-      <input type="text" class="form-control" id="sourceTitle" required [(ngModel)]="sourceTitle" name="sourceTitle">
-    </div>
-    <div class="form-group">
-      <label>Source Container</label>
-      <input type="text" class="form-control" id="sourceContainer" placeholder="Such as an album, collection of short stories, TV show, etc" [(ngModel)]="sourceContainer" name="sourceContainer">
-    </div>
-    <div class="form-group">
-      <label>Version Number</label>
-      <input type="text" class="form-control" id="version" [(ngModel)]="version" name="version">
-    </div>
-    <div class="form-group">
-      <label>Number</label>
-      <input type="text" class="form-control" id="number" [(ngModel)]="number" name="number">
-    </div>
-    <div class="form-group">
-      <label>Publisher Name</label>
-      <input type="text" class="form-control" id="publisher" [(ngModel)]="publisher" name="publisher">
-    </div>
-    <div class="form-group">
-      <label>Publication Date</label>
-      <input type="text" class="form-control" id="pubDate" [(ngModel)]="pubDate" name="pubDate">
-    </div>
-    <div class="form-group">
-      <label>Location of Publication</label>
-      <input type="text" class="form-control" id="pubLoc" [(ngModel)]="pubLoc" name="pubLoc">
-    </div>
-    <div class="form-group">
-      <label>Source URL</label>
-      <input type="text" class="form-control" id="sourceURL" [(ngModel)]="sourceURL" name="sourceURL">
-    </div>
-    <div class="form-group">
-      <label>Media Format</label>
-      <input type="text" class="form-control" id="mediaFormat" [(ngModel)]="mediaFOrmat" name="mediaFormat" required> <!-- change to dropdown bitch -->
-    </div>
-    <div class="form-group">
-      <label>ISBN</label>
-      <input type="text" class="form-control" id="isbn" [(ngModel)]="isbn" name="isbn">
-    </div>
-    <div class="form-group">
-      <label>Pages</label>
-      <input type="text" class="form-control" id="pages" [(ngModel)]="pages" name="pages">
-    </div>
-    <div class="form-group">
-      <input type="text" class="form-control" id="inputString" placeholder="Cite any type of media by typing in the title/ISBN/URL or keywords" required [(ngModel)]="inputString" name="inputString">
-    </div>
-    <button type="submit" class="btn btn-success" [disabled]="!citForm.form.valid">Submit</button>
-  </form>
+      <div class="form-group">
+        <label>Author First Name</label>
+        <input type="text" class="form-control" id="authorFirstName" [(ngModel)]="authorFirstName" name="authorFirstName">
+      </div>
+      <div class="form-group">
+        <label>Author Last Name</label>
+        <input type="text" class="form-control" id="authorLastName" [(ngModel)]="authorLastName" name="authorLastName">
+      </div>
+      <div class="form-group">
+        <label>Source Title</label>
+        <input type="text" class="form-control" id="sourceTitle" required [(ngModel)]="sourceTitle" name="sourceTitle">
+      </div>
+      <div class="form-group">
+        <label>Source Container</label>
+        <input type="text" class="form-control" id="sourceContainer" placeholder="Such as an album, collection of short stories, TV show, etc" [(ngModel)]="sourceContainer" name="sourceContainer">
+      </div>
+      <div class="form-group">
+        <label>Version Number</label>
+        <input type="text" class="form-control" id="version" [(ngModel)]="version" name="version">
+      </div>
+      <div class="form-group">
+        <label>Number</label>
+        <input type="text" class="form-control" id="number" [(ngModel)]="number" name="number">
+      </div>
+      <div class="form-group">
+        <label>Publisher Name</label>
+        <input type="text" class="form-control" id="publisher" [(ngModel)]="publisher" name="publisher">
+      </div>
+      <div class="form-group">
+        <label>Publication Date</label>
+        <input type="text" class="form-control" id="pubDate" [(ngModel)]="pubDate" name="pubDate">
+      </div>
+      <div class="form-group">
+        <label>Location of Publication</label>
+        <input type="text" class="form-control" id="pubLoc" [(ngModel)]="pubLoc" name="pubLoc">
+      </div>
+      <div class="form-group">
+        <label>Source URL</label>
+        <input type="text" class="form-control" id="sourceURL" [(ngModel)]="sourceURL" name="sourceURL">
+      </div>
+      <div class="form-group">
+        <label>ISBN</label>
+        <input type="text" class="form-control" id="isbn" [(ngModel)]="isbn" name="isbn">
+      </div>
+      <div class="form-group">
+        <label>Pages</label>
+        <input type="text" class="form-control" id="pages" [(ngModel)]="pages" name="pages">
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!citForm.form.valid">Submit</button>
+    </form>
+  </div>
+  <div [hidden]="!submitted">
+    <p>{{ authorLastName }}, {{ authorFirstName }}. <i>{{ sourceTitle }}.</i> {{ publisher }}, {{ pubDate }}</p>
+    <button type="button" class="btn btn-primary" (click)="retry()">Redo</button>
+  </div>
 </div>
